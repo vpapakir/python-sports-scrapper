@@ -18,7 +18,6 @@ mysql-connector-python
 pip
 procfs
 pygobject   
-pyliblzma
 pyparsing
 python-linux-procfs
 pytz   
