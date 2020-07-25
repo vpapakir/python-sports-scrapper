@@ -17,7 +17,7 @@ lxml==3.2.1
 mysql-connector-python==8.0.12   
 pip==18.0 
 procfs==0.5.0
-pycurl==7.19.0   
+pycurl   
 pygobject==3.22.0   
 pygpgme==0.3  
 pyliblzma==0.5.3
