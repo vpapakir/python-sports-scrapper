@@ -16,10 +16,6 @@ ipaddress
 lxml
 mysql-connector-python   
 pip
-procfs
-pygobject   
-pyparsing
-python-linux-procfs
 pytz   
 pyudev 
 pyxattr
