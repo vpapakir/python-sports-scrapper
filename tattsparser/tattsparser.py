@@ -23,7 +23,7 @@ def main():
     racing_page = ''.join([START_URL, '/racing/'])
 
     soup = get_page_content(racing_page)
-    print soup
+    print(soup)
     table = soup.find('table', {'id': 'page_R1'})
     
     # find all links, which match a pattern
