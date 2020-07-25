@@ -35,7 +35,7 @@ setuptools==40.0.0
 six==1.9.0
 SQLAlchemy==1.2.10   
 urlgrabber==3.10 
-urllib3==1.23 
+urllib3==1.24.2 
 virtualenv==15.1.0   
 virtualenv-api==2.1.16   
 yum-metadata-parser==1.1.4
