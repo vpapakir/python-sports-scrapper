@@ -19,7 +19,6 @@ pip
 pytz   
 pyudev 
 pyxattr
-pyzor
 schedutils  
 setuptools   
 six
