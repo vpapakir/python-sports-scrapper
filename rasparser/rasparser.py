@@ -18,33 +18,37 @@ from save_data import save_data
 def main():
     # define urls
     start_url = 'http://www.racingandsports.com.au/en/form-guide/'
-
-    # get web page
-    hdr = request_header()
-    page = requests.get(start_url, headers = hdr)
-    soup = bs(page.text, 'lxml')
-
+    
     # create a list
     all_races = []
 
-    # get main div element
-    main_div = soup.find('div', {'id': 'accordion36T'})
+    # get web page
+    try:
+        hdr = request_header()
+        page = requests.get(start_url, headers = hdr, allow_redirects=True)
+        soup = bs(page.text, 'lxml')
 
-    td_accept = main_div.find_all('td', text='Acceptance')
-    venues = {}
-    for td in td_accept:
-        anchor = td.previous_sibling.find('a', class_='nf')
-        venue_id = re.search('\d+', anchor['href']).group()
-        venue_name = anchor.text.strip()
-        print('{0}: {1}'.format(venue_id, venue_name))
-        venues[venue_id] = venue_name
+        # get main div element
+        main_div = soup.find('div', {'id': 'accordion36T'})
 
-    for item in venues.items():
-        # parse tables' page
-        venue_races = parse_data(start_url, item)
-        all_races.append(venue_races)
-        # make random delay to simulate a real user
-        time.sleep(random.choice([x for x in range(3, 7)]))
+        td_accept = main_div.find_all('td', text='Acceptance')
+        venues = {}
+        for td in td_accept:
+            anchor = td.previous_sibling.find('a', class_='nf')
+            venue_id = re.search('\d+', anchor['href']).group()
+            venue_name = anchor.text.strip()
+            print('{0}: {1}'.format(venue_id, venue_name))
+            venues[venue_id] = venue_name
+
+        for item in venues.items():
+            # parse tables' page
+            venue_races = parse_data(start_url, item)
+            all_races.append(venue_races)
+            # make random delay to simulate a real user
+            time.sleep(random.choice([x for x in range(3, 7)]))
+     
+    except Exception as exc_req:
+        print(exc_req)
 
     return all_races
 
@@ -124,21 +128,17 @@ def parse_data(start_url, venue):
 
 # execute
 if __name__ == '__main__':
-    # try to scrape 2 times if succeeds and 3 times if fails
     count_tries = 1
     count_fails = 1
     while count_tries <= 2 and count_fails <= 3:
         try:
             brisbane_timezone = pytz.timezone('Australia/Brisbane')
             brisbane_now = datetime.now(brisbane_timezone)
-            print(brisbane_now.strftime('%c'))
-#            print('Parsing data ...')
             
             # parse web pages
             all_races = main()
             print('Parsed %s venues.' % len(all_races))
 
-#            print('Saving data to the database...')
             save_data(all_races)
 
             print('Data saved to the database.')
