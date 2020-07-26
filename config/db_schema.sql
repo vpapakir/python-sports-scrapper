@@ -1,3 +1,0 @@
-CREATE TABLE `tattsraces` (`recordid` int(10) NOT NULL AUTO_INCREMENT, `parsedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, `racevenue` varchar(30) NOT NULL, `racenumber` int(2) NOT NULL DEFAULT '0', `rating` int(3) NOT NULL, `horseid` int(2) NOT NULL, PRIMARY KEY (`recordid`)) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
-
-CREATE TABLE `races` (`recordid` int(10) NOT NULL AUTO_INCREMENT, `racedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, `racevenue` varchar(30) NOT NULL, `racenumber` int(2) NOT NULL, `horseid` int(2) NOT NULL DEFAULT '0', `price` decimal(6,2) NOT NULL DEFAULT '0.00', `dlr` int(5) NOT NULL, `nr` decimal(6,2) NOT NULL, PRIMARY KEY (`recordid`)) ENGINE=InnoDB AUTO_INCREMENT=5858 DEFAULT CHARSET=latin1

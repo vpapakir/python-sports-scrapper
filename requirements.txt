@@ -1,3 +1,5 @@
+sqlalchemy
+oursql3
 backports.ssl-match-hostname  
 beautifulsoup4
 boto   
