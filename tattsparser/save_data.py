@@ -18,7 +18,7 @@ logging.getLogger('sqla.engine').setLevel(logging.DEBUG)
 def save_data(venues):
     # get db config data
     config = ConfigParser.ConfigParser()
-    config_path = '/home/moneyinmotioncom/public_html/application/python_scrapers'
+    config_path = '../'
     config.read(os.path.join(config_path, 'config/config.cfg'))
     dbuser = config.get('mysqldb', 'dbuser')
     dbpass = config.get('mysqldb', 'dbpass')

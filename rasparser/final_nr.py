@@ -7,7 +7,6 @@ import decimal
 def get_final_nr(nr, horse_number):
     decimal.getcontext().prec = 3
     nr = decimal.Decimal(nr)
-#    horse_number = decimal.Decimal(horse_number)
 
     nr_fin = None
 
