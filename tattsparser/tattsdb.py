@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-# tattsdb.py #
-
-import ConfigParser
+try:
+    import ConfigParser
+except Exception as module_error:
+    import configparser
 import os
 import datetime
 import sqlalchemy as sqla
@@ -33,8 +34,8 @@ class TattsRaces(Base):
 
 
 # connect to the MySQL db server
-config = ConfigParser.ConfigParser()
-config_path = '../')
+config = configparser.ConfigParser()
+config_path = os.getcwd()
 config.read(os.path.join(config_path, 'config/config.cfg'))
 dbuser = config.get('mysqldb', 'dbuser')
 dbpass = config.get('mysqldb', 'dbpass')
