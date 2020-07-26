@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-import ConfigParser
+try:
+    import ConfigParser
+except Exception as exc_cp:
+    import configparser
 import os
 import logging
 import re
@@ -16,9 +19,12 @@ logging.getLogger('sqla.engine').setLevel(logging.DEBUG)
 
 # save to MySQL
 def save_data(venues):
-    # get db config data
-    config = ConfigParser.ConfigParser()
-    config_path = '../'
+    try:
+        config = ConfigParser.ConfigParser()
+    except Exception as exc_cp:
+        config = configparser.ConfigParser()
+
+    config_path = os.getcwd()
     config.read(os.path.join(config_path, 'config/config.cfg'))
     dbuser = config.get('mysqldb', 'dbuser')
     dbpass = config.get('mysqldb', 'dbpass')
