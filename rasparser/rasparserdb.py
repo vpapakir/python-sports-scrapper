@@ -1,9 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# rasparserdb.py #
-
-import ConfigParser
+try:
+     import ConfigParser
+except Exception as exc_cp:
+     import configparser
 import os
 import sqlalchemy as sqla
 import sqlalchemy.types as sqltypes

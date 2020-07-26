@@ -3,11 +3,9 @@
 
 import decimal
 
-
 def get_final_rating(rating, horse_number):
     decimal.getcontext().prec = 3
     rating = decimal.Decimal(rating)
-#    horse_number = decimal.Decimal(horse_number)
 
     rating_fin = None
 

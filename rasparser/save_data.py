@@ -1,11 +1,12 @@
-import ConfigParser
+try:
+    import ConfigParser
+except Exception as exc_cp:
+    import configparser
 import os
 import re
 import sqlalchemy as sqla
 from sqlalchemy.orm import sessionmaker
-
 from rasparserdb import Base, Races
-
 
 # save to MySQL
 def save_data(all_races):
