@@ -8,7 +8,10 @@ import random
 import re
 import requests
 import time
-import urlparse
+try:
+    import urlparse
+except Exception as exc_urlparse:
+    from urllib.parse import urlparse
 from bs4 import BeautifulSoup as bs
 from datetime import datetime
 

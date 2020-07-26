@@ -29,8 +29,12 @@ class Races(Base):
 
 
 # connect to the MySQL db server
-config = ConfigParser.ConfigParser()
-config_path = '../'
+try:
+    config = ConfigParser.ConfigParser()
+except Exception as exc_cp:
+    config = configparser.ConfigParser()
+
+config_path = os.getcwd()
 config.read(os.path.join(config_path, 'config/config.cfg'))
 dbuser = config.get('mysqldb', 'dbuser')
 dbpass = config.get('mysqldb', 'dbpass')

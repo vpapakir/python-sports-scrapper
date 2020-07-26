@@ -11,8 +11,11 @@ from rasparserdb import Base, Races
 # save to MySQL
 def save_data(all_races):
     # get db config data
-    config = ConfigParser.ConfigParser()
-    config_path = '../'
+    try: 
+        config = ConfigParser.ConfigParser()
+    except Exception as exc_cp:
+        config = configparser.ConfigParser()
+    config_path = os.getcwd()
     config.read(os.path.join(config_path, 'config/config.cfg'))
     dbuser = config.get('mysqldb', 'dbuser')
     dbpass = config.get('mysqldb', 'dbpass')

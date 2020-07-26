@@ -18,3 +18,4 @@ pyxattr
 six
 pytest
 tox
+requests
