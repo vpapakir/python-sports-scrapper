@@ -16,3 +16,5 @@ pytz
 pyudev 
 pyxattr
 six
+pytest
+tox
