@@ -11,7 +11,7 @@ from rasparserdb import Base, Races
 def save_data(all_races):
     # get db config data
     config = ConfigParser.ConfigParser()
-    config_path = '/home/moneyinmotioncom/public_html/application/python_scrapers'
+    config_path = '../'
     config.read(os.path.join(config_path, 'config/config.cfg'))
     dbuser = config.get('mysqldb', 'dbuser')
     dbpass = config.get('mysqldb', 'dbpass')

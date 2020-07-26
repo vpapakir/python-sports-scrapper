@@ -34,7 +34,7 @@ class TattsRaces(Base):
 
 # connect to the MySQL db server
 config = ConfigParser.ConfigParser()
-config_path = '{0}/public_html/application/python_scrapers'.format(os.environ['HOME'])
+config_path = '../')
 config.read(os.path.join(config_path, 'config/config.cfg'))
 dbuser = config.get('mysqldb', 'dbuser')
 dbpass = config.get('mysqldb', 'dbpass')
